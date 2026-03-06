@@ -7,7 +7,7 @@
     {
       "id": "overview",
       "title": "Welcome to React Grab",
-      "description": "Point at any UI element, press Cmd+C, and get the file name, React component, and HTML source - making coding agents run up to 3x faster. This monorepo uses pnpm workspaces with Turborepo across 20+ packages.",
+      "description": "React Grab is a monorepo that lets developers point at any UI element and press Cmd+C to copy the file name, React component, and HTML source code - making coding agents like Cursor, Claude Code, and Copilot run up to 3 times faster. The project uses pnpm workspaces with Turborepo for build orchestration across 20+ packages.",
       "colorMode": "fileTypes"
     },
     {
