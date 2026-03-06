@@ -1,0 +1,239 @@
+{
+  "id": "react-grab-onboarding",
+  "title": "React Grab Codebase Tour",
+  "description": "A guided walkthrough of the React Grab monorepo - a tool that lets you select context for coding agents directly from your website",
+  "version": "1.0.0",
+  "steps": [
+    {
+      "id": "overview",
+      "title": "Welcome to React Grab",
+      "description": "React Grab is a monorepo that lets developers point at any UI element and press Cmd+C to copy the file name, React component, and HTML source code - making coding agents like Cursor, Claude Code, and Copilot run up to 3x faster. The project uses pnpm workspaces with Turborepo for build orchestration across 20+ packages.",
+      "colorMode": "fileTypes"
+    },
+    {
+      "id": "core-library",
+      "title": "Core Library - packages/react-grab",
+      "description": "The heart of the project. This package contains the SolidJS-based overlay UI, element selection logic, clipboard handling, keyboard shortcuts, and the plugin system. Key areas: src/core/ handles selection, events, and copy logic; src/components/ renders the overlay, context menu, toolbar, and selection labels; src/utils/ contains focused helper functions.",
+      "focusDirectory": "packages/react-grab/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "core-engine",
+          "name": "Core Engine",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "packages/react-grab/src/core", "type": "directory" },
+            { "path": "packages/react-grab/src/index.ts", "type": "file" },
+            { "path": "packages/react-grab/src/types.ts", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "ui-components",
+          "name": "UI Components",
+          "color": "#10b981",
+          "items": [
+            { "path": "packages/react-grab/src/components", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "utilities",
+          "name": "Utilities",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "packages/react-grab/src/utils", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "core-internals",
+      "title": "Core Internals - Selection & Plugins",
+      "description": "The core/ directory is where element selection, keyboard handling, clipboard operations, and the plugin registry live. The agent/ subdirectory manages AI agent sessions. Built-in plugins (copy, open, comment, copy-html, copy-styles) extend functionality via the plugin-registry system. The store and events modules manage reactive state using SolidJS signals.",
+      "focusDirectory": "packages/react-grab/src/core",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "selection-flow",
+          "name": "Selection Flow",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "packages/react-grab/src/core/context.ts", "type": "file" },
+            { "path": "packages/react-grab/src/core/events.ts", "type": "file" },
+            { "path": "packages/react-grab/src/core/keyboard-handlers.ts", "type": "file" },
+            { "path": "packages/react-grab/src/core/copy.ts", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "plugin-system",
+          "name": "Plugin System",
+          "color": "#ec4899",
+          "items": [
+            { "path": "packages/react-grab/src/core/plugin-registry.ts", "type": "file" },
+            { "path": "packages/react-grab/src/core/plugins", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "cli-package",
+      "title": "CLI - Developer Setup Tool",
+      "description": "The packages/cli package powers 'npx grab@latest init' - the one-command setup experience. It detects your framework (Next.js, Vite, Webpack), installs react-grab, and injects the correct script tag or import. Commands include init, add (for MCP integration), remove, and configure. The utils/ directory handles framework detection, code transforms, and MCP server installation.",
+      "focusDirectory": "packages/cli/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "cli-commands",
+          "name": "CLI Commands",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "packages/cli/src/cli.ts", "type": "file" },
+            { "path": "packages/cli/src/commands", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "cli-utils",
+          "name": "CLI Utilities",
+          "color": "#f97316",
+          "items": [
+            { "path": "packages/cli/src/utils", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "agent-providers",
+      "title": "Agent Provider Packages",
+      "description": "React Grab supports 9 coding agents, each with a dedicated provider package: Cursor, Claude Code, Copilot, Codex, Gemini, Amp, Droid, OpenCode, and Ami. Each provider follows a consistent pattern with client.ts (browser-side relay client), server.ts (WebSocket/SSE server), handler.ts (agent-specific message handling), and cli.ts (registration entry point).",
+      "focusDirectory": "packages",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "providers",
+          "name": "Agent Providers",
+          "color": "#a855f7",
+          "items": [
+            { "path": "packages/provider-cursor", "type": "directory" },
+            { "path": "packages/provider-claude-code", "type": "directory" },
+            { "path": "packages/provider-copilot", "type": "directory" },
+            { "path": "packages/provider-codex", "type": "directory" },
+            { "path": "packages/provider-gemini", "type": "directory" },
+            { "path": "packages/provider-amp", "type": "directory" },
+            { "path": "packages/provider-droid", "type": "directory" },
+            { "path": "packages/provider-opencode", "type": "directory" },
+            { "path": "packages/provider-ami", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "relay-and-mcp",
+      "title": "Relay & MCP - Communication Layer",
+      "description": "The relay package provides the WebSocket-based communication bridge between the browser and coding agents. It defines the protocol, manages connections, and handles client/server messaging. The mcp package exposes React Grab as a Model Context Protocol server, letting agents query element context programmatically.",
+      "focusDirectory": "packages",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "relay-layer",
+          "name": "Relay (WebSocket Bridge)",
+          "color": "#14b8a6",
+          "items": [
+            { "path": "packages/relay", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "mcp-layer",
+          "name": "MCP Server",
+          "color": "#f43f5e",
+          "items": [
+            { "path": "packages/mcp", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "shared-utils",
+          "name": "Shared Utilities",
+          "color": "#eab308",
+          "items": [
+            { "path": "packages/utils", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "web-extension",
+      "title": "Browser Extension",
+      "description": "The web-extension package bundles React Grab as a Chrome extension so it works on any website without code changes. It uses a service worker for background tasks, a content script bridge to inject React Grab into pages, and follows the Manifest V3 extension architecture.",
+      "focusDirectory": "packages/web-extension/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "extension-core",
+          "name": "Extension Core",
+          "color": "#6366f1",
+          "items": [
+            { "path": "packages/web-extension/src/background", "type": "directory" },
+            { "path": "packages/web-extension/src/content", "type": "directory" },
+            { "path": "packages/web-extension/src/manifest.json", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    },
+    {
+      "id": "infra-and-config",
+      "title": "Monorepo Infrastructure",
+      "description": "React Grab uses pnpm workspaces with Turborepo for task orchestration. Changesets handle versioning and publishing. Key config files: turbo.json defines the build pipeline, pnpm-workspace.yaml declares workspace packages, vercel.json configures deployment, and AGENTS.md provides coding conventions (SolidJS reactivity rules, kebab-case files, arrow functions, no type casting).",
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "build-config",
+          "name": "Build & Deploy Config",
+          "color": "#64748b",
+          "items": [
+            { "path": "turbo.json", "type": "file" },
+            { "path": "pnpm-workspace.yaml", "type": "file" },
+            { "path": "vercel.json", "type": "file" },
+            { "path": "package.json", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "dev-docs",
+          "name": "Developer Docs",
+          "color": "#22c55e",
+          "items": [
+            { "path": "AGENTS.md", "type": "file" },
+            { "path": "CONTRIBUTING.md", "type": "file" },
+            { "path": "README.md", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ]
+    }
+  ]
+}
